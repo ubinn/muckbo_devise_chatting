@@ -1,0 +1,40 @@
+<section class="flat-row flat-login parallax1" style="padding-top: 0px;padding-bottom: 0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+					</div><!-- /.col-lg-2 -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="login-form" style="font-family:Poor Story">
+							<h3 style="font-family:Poor Story">또 같이 먹으러가자!</h3>
+							<!--<form action="/users/sign_in" method="get" accept-charset="utf-8">-->
+							<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+								<div class="wrap-login">
+								    <%= f.label :email %><br />
+								    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+								</div>
+								<div class="wrap-login">
+								    <%= f.label :password %><br />
+								    <%= f.password_field :password, autocomplete: "off" %>
+								</div>
+								<div class="wrap-login remember">
+									<a href="/users/sign_up" class="sign_up" title="" style="color: #ffffff;">가입하기</a>
+									<a href="/find_pw" class="forgot" title="">비밀번호를 잊으셨나요?</a>
+								</div>		
+								<br>
+								<% flash.each do |key, message| %>
+									<h5><%= message %></h5>
+								<% end %>
+								<div class="btn-more" style="text-align: center;">
+									<!--<button type ="submit" title="submit">로그인</button>-->
+									<%= f.submit "Log in" %>
+								</div>
+								<% end %>
+							</form><!-- /form -->
+						</div><!-- /.login-form -->
+					</div><!-- /.col-lg-4 -->
+					<div class="col-lg-1">
+					</div><!-- /.col-lg-1 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.flat-login -->

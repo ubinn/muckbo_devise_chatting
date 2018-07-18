@@ -1,0 +1,48 @@
+	<section class="flat-row flat-login style2 parallax1" style="padding-top: 0px;padding-bottom: 0px;">>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+					</div><!-- /.col-lg-2 -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="login-form style2" style="font-family:Poor Story">
+							<h3 style="font-family:Poor Story">회원가입</h3>
+							<form action="/create" method="POST" accept-charset="utf-8">
+							   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+								<div class="wrap-login">
+									<label>학번</label>
+									<input type="text" class="user_id col-xs-10" name="user_id" placeholder="학번" maxlength=8>
+								</div>
+								<div class="wrap-login">
+								<label>비밀번호</label>
+									<input type="password" class="password" name="password" placeholder="비밀번호">
+								</div>
+								<br>
+								<div class="wrap-login">
+								<label>전공</label>
+									<input type="text" class="major" name="major" placeholder="전공">
+								</div>
+								<div class="wrap-login">
+								<label>복수전공</label>
+									<input type="text" class="another_major" name="another_major" placeholder="복수전공">
+								</div>
+								<div class="wrap-login">
+								<label>성별</label>
+								<span class="categories">
+								  	<select id="sex" class="custom-select ti-angle-down" style="color: white;border: 1px solid #ffffff;border-radius: 5px;font-family:Poor Story">
+										<option value="man" style="color: black;">남</option>
+									    <option value="women" style="color: black;">여</option>
+									</select>
+								</div>
+								</span>
+								<div class="btn-more" style="text-align: center;">
+									<button type ="submit" title="submit">register</button>
+								</div>
+							</form><!-- /form -->
+						</div><!-- /.login-form style2 -->
+					</div><!-- /.col-lg-4 col-sm-6 -->
+					<div class="col-lg-1">
+					</div><!-- /.col-lg-1 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.flat-login style2 -->

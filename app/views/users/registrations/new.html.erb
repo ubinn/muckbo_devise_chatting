@@ -1,0 +1,64 @@
+
+	<section class="flat-row flat-login style2 parallax1" style="padding-top: 0px;padding-bottom: 0px;">>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+					</div><!-- /.col-lg-2 -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="login-form style2" style="font-family:Poor Story">
+							<h3 style="font-family:Poor Story">회원가입</h3>
+						    
+							<!--<form action="/create" method="POST" accept-charset="utf-8">-->
+							<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+								<%= resource.errors.full_messages.join('') %>
+							   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+								<div class="wrap-login">
+									<%= f.label :email %><br />
+    								<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+								</div>
+								<div class="wrap-login">
+									<%= f.label :password %>
+								    <% if @minimum_password_length %>
+								    <em>(<%= @minimum_password_length %> characters minimum)</em>
+								    <% end %>
+								    <%= f.password_field :password, autocomplete: "off" %>
+								</div>
+								<div class="wrap-login">
+								    <%= f.label :password_confirmation %>
+    								<%= f.password_field :password_confirmation, autocomplete: "off" %>
+								<br/>
+    							</div>
+								<div class="wrap-login">
+									<%= f.label :nickname %>
+									<%= f.text_field :nickname, autofocus: true, autocomplete: "off" %>
+								</div>
+								<div class="wrap-login">
+									<%= f.label :major %>
+									<%= f.text_field :major, autofocus: true, autocomplete: "off" %>
+								</div>
+								<div class="wrap-login">
+									<%= f.label :another_major %>
+									<%= f.text_field :another_major, autofocus: true, autocomplete: "off" %>
+								</div>
+								<div class="wrap-login">
+									<%= f.select(:sex) do %>
+									  <% [['남', 'man'], ['여', 'woman']].each do |c| -%>
+									    <%= content_tag(:option, c.first, value: c.last) %>
+									  <% end %>
+									<% end %>
+								</div>
+			
+								<div class="actions">
+								  <%= f.submit "가입하기" %>
+								</div>
+							<% end %>
+							<!--</form>--><!-- /form -->
+						</div><!-- /.login-form style2 -->
+					</div><!-- /.col-lg-4 col-sm-6 -->
+					<div class="col-lg-1">
+					</div><!-- /.col-lg-1 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.flat-login style2 -->
+<%= render "devise/shared/links" %>

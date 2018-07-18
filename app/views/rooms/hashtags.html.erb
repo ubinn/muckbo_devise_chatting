@@ -1,0 +1,122 @@
+		<section class="page-title style1 parallax parallax1">
+			<div class="container">
+				<div class="row">
+					<div class="col">			
+					<div class="page-title-heading" style="font-family:Poor Story">
+							같이 먹자!</div>
+						<div class="wrap-box-search style1 mb-3" >
+							<form action="#" method="get" accept-charset="utf-8">
+								<span>
+									<input type="text" placeholder="해시태그검색" name="search">
+								</span>
+								<span class="categories">
+									<span class="ti-angle-down"></span>
+									<select name="food_type">
+										<option value="1">한식</option>
+										<option value="2">중식</option>
+										<option value="3">일식</option>
+										<option value="4">양식</option>
+										<option value="5">분식</option>
+										<option value="6">아시안</option>
+										<option value="7">간편식</option>
+										<option value="8">육식</option>
+									</select>
+								</span>
+								<span class="categories">
+									<span class="ti-angle-down"></span>
+									<select name="categories">
+										<option value="1">정보교류</option>
+										<option value="2">혼밥매칭</option>
+									</select>
+								</span>
+								<div class="input-group-append">
+								<button type="submit" class="search-btn">Search</button>
+								</div>
+							</form><!-- /form -->
+						</div><!-- /.wrap-box-search -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.page-title -->
+		
+		<section class="style3 flat-row">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">			
+						<div class="filter-result style2" style="font-family:Nanum Gothic Coding">
+							<div class="result">
+								<span style="font-family:Do Hyeon"><font size="4">#<%=@tag%>에 해당되는 <%= @rooms.count %>개의 방이 있습니다!</font></span> <!--검색된 방의 갯수로 바꾸기--> 
+							</div>
+								<span style="float:right;font-family:Do Hyeon"><font size="4"><%=link_to '방만들기', new_room_path %></font></span>
+						</div><!-- /.filter-result -->
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+					<% @rooms.each do |room| %>
+				<div class="style3" style= "font-family:Do Hyeon">
+					<div= "row">
+						<div class="col-sx-12">
+							<div class="imagebox style2">
+								<div class="container ">
+									<div class="box-header">
+									</div><!-- /.box-header -->
+									<div class ="row">
+										<div>
+											<a href ="/rooms/<%=room.id%>" ><font size="5"><%= room.room_title %></font></a>
+											<span style="float:right;font-family:Do Hyeon"><font size="5"><%=room.now_count%>/<%=room.max_count%></font></span>
+										</div>
+										
+										<div style ="font-family:Do Hyeon">
+											<span style="color:black" class ="col"><font style="font-family:Do Hyeon" size="4"><%= room.start_time_hour%>:<%= room.start_time_min %>에 보자!</font></span>
+											<div style="float:right;"><span><font size="5"><%= room.food_type %></font></span></div>
+										</div>
+									
+										<div class="Hashtag" style="font-family:Nanum Gothic Coding">
+											<span>
+												<% room.tags.each do |tag| %>
+													<%= link_to "##{tag.name}", "/rooms/hashtags/#{tag.name}" %>
+												<% end %>
+											</span>
+										</div>
+									</div><!-- /.box-content -->
+								</div><!-- /.box-imagebox -->
+							</div><!-- /.imagebox style2 -->
+						</div><!-- /.col-sm-12 -->
+					</div>
+				
+						<% end %>
+					
+					<div class="row">
+						<div class="col-md-12">
+							<div class="btn-more">
+								<a href="/" title="">back</a>
+							</div>
+						</div>
+					</div><!-- /.row -->
+				</div>
+			</div><!-- /.container -->
+		</section><!-- /.flat-imagebox style3 -->
+
+		<section class="flat-row flat-subscribe">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-7">
+						<div class="subscribe-text">
+							Subscribe and be notified about new locations
+						</div>
+					</div><!-- /.col-sm-7 -->
+					<div class="col-sm-5">
+						<div class="subscribe-form">
+							<form action="#" method="get" accept-charset="utf-8">
+								<div class="subscribe-content">
+									<div class="input-field">
+										<input type="email" name="yourEmail" placeholder="Your Email" />
+									</div>
+									<button><span class="arrow_right"></span></button>
+								</div>
+							</form>
+						</div><!-- /.subscribe-form -->
+					</div><!-- /.col-sm-5 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</section><!-- /.flat-subscibe -->

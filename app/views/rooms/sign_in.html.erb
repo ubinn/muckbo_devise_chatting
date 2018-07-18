@@ -1,0 +1,33 @@
+<section class="flat-row flat-login parallax1" style="padding-top: 0px;padding-bottom: 0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2">
+					</div><!-- /.col-lg-2 -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="login-form" style="font-family:Poor Story">
+							<h3 style="font-family:Poor Story">또 같이 먹으러가자!</h3>
+							<form action="/log_in" method="get" accept-charset="utf-8">
+								<div class="wrap-login">
+									<label>이메일 주소 입력해주세요!</label>
+									<%= text_field_tag(:user_id) %>
+								</div>
+								<div class="wrap-login">
+									<label>비밀번호 입력해주세요!</label>
+									<%= password_field_tag(:password) %>
+								</div>
+								<div class="wrap-login remember">
+									<a href="/users/sign_up" class="sign_up" title="" style="color: #ffffff;">가입하기</a>
+									<a href="/find_pw" class="forgot" title="">비밀번호를 잊으셨나요?</a>
+								</div>
+								<div class="btn-more" style="text-align: center;">
+									<button type ="submit" title="submit">로그인</button>
+								</div>
+							</form><!-- /form -->
+						</div><!-- /.login-form -->
+					</div><!-- /.col-lg-4 -->
+					<div class="col-lg-1">
+					</div><!-- /.col-lg-1 -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+			<div class="overlay"></div>
+		</section><!-- /.flat-login -->
