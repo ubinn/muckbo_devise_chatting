@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.default_url_options = { host: 'https://muckbo-kkmcd.c9users.io' }
-  config.action_mailer.default_url_options = { host: 'https://login-fastmatching-kkmcd.c9users.io/'}
+  config.action_mailer.default_url_options = { host: 'http://muckbo-devise-chat-binn02.c9users.io/'}
   # config.action_mailer.smtp_settings = {
   #   # user_name:      'postmaster@sandbox54b6142dd9e64fe8899720bf335d7fae.mailgun.org',
   #   # password:       '8a408960b63e67e79ea6e12242777266-8b7bf2f1-ab61acc5',

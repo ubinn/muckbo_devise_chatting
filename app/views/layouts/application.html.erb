@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    params[:controller], media: 'all' unless params[:controller].include?("devise") %>
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
     <%= javascript_include_tag 'application' unless params[:controller].include?("devise") %>
   </head>
 

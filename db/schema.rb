@@ -10,21 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180716103123) do
+ActiveRecord::Schema.define(version: 20180718081707) do
+
+  create_table "admissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.boolean  "ready_state", default: false, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["room_id"], name: "index_admissions_on_room_id"
+    t.index ["user_id"], name: "index_admissions_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_chats_on_room_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer  "master_id"
     t.string   "room_title"
-    t.integer  "now_count"
+    t.string   "master_id"
     t.integer  "max_count"
+    t.integer  "admissions_count", default: 0
+    t.boolean  "room_state",       default: false, null: false
     t.integer  "start_time_hour"
     t.string   "start_time_min"
     t.datetime "meet_time_end"
     t.string   "hashtag"
     t.string   "food_type"
     t.string   "room_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "rooms_tags", id: false, force: :cascade do |t|

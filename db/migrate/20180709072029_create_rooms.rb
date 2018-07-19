@@ -6,7 +6,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.string   :room_title
       t.string   :master_id
       t.integer  :max_count
-      t.integer  :admission_count, default: 0
+      t.integer  :admissions_count, default: 0
       t.boolean :room_state, default: false, null: false
 
       t.integer    :start_time_hour

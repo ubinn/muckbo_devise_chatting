@@ -49,10 +49,16 @@
 					<div class="col-md-4">
 						<div class="title-right">
 							<div class="btn-more match">
-								<a href="#" title="">Ready</a>
+								<%= link_to 'Ready', ready_room_path(@room), method: 'post', remote: true %>
 							</div>
 								<div class="btn-more">
-									<a href="#" title="">Match</a>
+									<div class="chat_link">
+										<% if @room.admissions.where(ready_state: true).size == @room.max_count %>
+										   <% if @room.master_id.eql?(current_user.email) %>
+										           <%= link_to 'Start', open_chat_room_path(@room), method: 'post', remote: true %>
+										   <% end %>        
+										<% end %>
+									</div>
 								</div>
 							<div class="clearfix"></div>
 						</div><!-- /.title-right -->
@@ -66,6 +72,27 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="text-box">
+							<h3>현재 참여 인원</h3>
+							<table>
+							  <thead>
+							   <tr>
+							     <th colspan="8" style="padding-right: 10px;" >참여한 사람</th>
+							     <th colspan="8">레디 상태</th>
+							   </tr>
+							  </thead>
+							
+							  <tbody class="room_user_list">
+							   <% @room.users.reverse.each do |user| %>
+							     <tr class="user-<%=user.id %>">
+							       <td colspan="8" style="padding-right: 10px;"><%= user.email %></td>
+							       <td colspan="8"><span class="current<%=@room.id %>"><%= user.admissions.where(room_id: @room.id)[0].ready_state %></span></td>
+							     </tr>
+							   <% end %>
+							  </tbody>
+							</table>
+						</div>
+						<br/>
+						<div class="text-box">
 							<h3>HashTag</h3>
 							<div class="text-desc">
 								<i><%= @room.hashtag %></i>
@@ -73,13 +100,84 @@
 						</div>
 					</div><!-- /.col-md-8 -->
 					<div class="col-md-4">
-						참가하는 유저 리스트 띄워주기 혹은, 명수만 보여주기.
+						<p> <strong>Max count:</strong> <%= @room.max_count %> </p>
+						<% if @room.admissions_count == @room.max_count %>
+							<p><strong>인원이 모두 찼습니다. 레디버튼을 눌러주세요.</strong></p>
+						<% end %>
 					</div><!-- /.col-md-4 -->
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 		</section><!-- /.flat-explore-detail <-->
 	
 	<%= link_to 'Back', rooms_path %>
+	<%= link_to 'Exit', exit_room_path(@room), method: 'delete', remote: true, data: {confirm: "이 방을 나가시겠습니까?"} %> 
+	
+<script>
+  $(document).on('ready', function(){
+         
+      function user_exit(data){
+         $(`.user-${data.user_id}`).remove();
+       }
+      
+      function user_join(data) {
+   		$('.room_user_list').prepend(`
+    	 <tr class="user-${data.user_id}">
+      		 <td colspan="8" style="padding-right: 10px;">${data.email}</td>
+      		 <td colspan="8"><span class="current${data.room_id}">${ data.ready_state}</span></td>
+     	 </tr>`);
+ 		}
+      function user_ready(data){
+          console.log("user_ready func 들어옴")
+        $(`.current${data.room_id}`).remove();
+        $(`.current${data.room_id}`).append(`${data.ready_state}`);
+        location.reload();
+      }
+      
+      function start_chat(data){
+        $('.chat_link').html(`<%= link_to 'chat_start', chat_room_path(@room), method: 'post', remote: true %>`);
+        location.reload();
+        // location.replace(`/rooms/${data.room_id}/chat`);
+       
+      }
+     
+      var pusher = new Pusher("<%= ENV["Pusher_key"]%>", {
+        cluster: "<%= ENV["Pusher_cluster"] %>",
+        encrypted: true
+      });
+     
+      var channel = pusher.subscribe("room_<%=@room.id%>");
+     
+       channel.bind('exit',function(data){
+       console.log("유저퇴장");
+         user_exit(data);
+      });
+     
+      channel.bind('join',function(data){
+        console.log("유저입장");
+        console.log(data);
+        user_join(data);
+        
+      })
+      
+      channel.bind('ready',function(data){
+        console.log("레디발싸");
+        user_ready(data);
+      })
+     
+     channel.bind('start',function(data){
+       console.log("start_chat 찍혔다.");
+       start_chat(data);
+     })
+     
+     channel.bind('chat_start', function(data) {
+        location.reload();
+     })
+      
+ });
+</script>
+		
+	
+	
 <% content_for 'javascript_content' do %>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
 

@@ -1,0 +1,33 @@
+<div class="chat_list">
+  <% @room.chats.each do |chat| %>
+      <p><%= chat.user.email%> : <%= chat.message %><small> <%= chat.created_at %></small></p>
+  <%end%>
+</div>
+<%= form_tag("/rooms/#{@room.id}/chat") do %>
+  <%= text_field_tag :message %>
+<% end %>
+
+<%= link_to 'Back', rooms_path(@room) %>
+
+
+<script>
+  $('#message').val('');
+ 
+ 
+  function user_chat(data){
+      //  $('.chat_list').append(`<p>${data.email}님 께서 입장하셨습니다.</p>`);
+      $('.chat_list').append(`<p>${data.email}: ${data.message} <small>(${data.created_at})</small></p>`)
+  }
+ 
+   var pusher = new Pusher("<%= ENV["Pusher_key"]%>", {
+    cluster: "<%= ENV["Pusher_cluster"] %>",
+    encrypted: true
+  });
+ 
+  var channel = pusher.subscribe("room_<%=@room.id%>");
+ 
+  channel.bind('chat', function(data){
+       user_chat(data);
+       console.log("채팅중입니다.")
+  });
+</script>
