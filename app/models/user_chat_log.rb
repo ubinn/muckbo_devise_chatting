@@ -1,0 +1,2 @@
+class UserChatLog < ApplicationRecord
+end

@@ -137,7 +137,7 @@ class RoomsController < ApplicationController
     end
   end
   
-   def is_user_ready
+  def is_user_ready
    if current_user.is_ready?(@room) # 현재 레디상태라면
      render js: "console.log('이미 레디상태'); location.reload();"
    else  # 현재 레디상태가 아니라면
@@ -148,8 +148,7 @@ class RoomsController < ApplicationController
       Room.where(admissions_count: 0).destroy_all
      # if
    end
-   
- end
+  end
  
  def chat
    @room_id = @room.id
@@ -160,10 +159,24 @@ class RoomsController < ApplicationController
  def open_chat
    p "오픈챗 됬다."
    @room.update(room_state: true)
+   @room.admissions.each do |admission|
+      UserChatLog.create(room_title: @room.room_title, room_id: @room.id, user_id: admission.user_id, nickname: admission.user.nickname, chat_date: admission.updated_at.to_date )
+   end
+   p "admission의 힘"
    Pusher.trigger("room_#{@room.id}", 'chat_start', {})
-   Pusher.trigger("room_#{@room.id}")
  end
 
+ def report
+   @report = Report.new
+ end
+ 
+ def report_create
+   p "신고받음"
+        @report = Report.create(report_reason: params[:report_reason], report_description: params[:report_description])
+        @report.user_id = current_user.id
+        @report.user_email = current_user.email
+       
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -177,10 +190,6 @@ class RoomsController < ApplicationController
     # {room_title: params[:room][:room]
     end
     
-    # def user_params
-    #   #email: params[:email], password: params[:password], nickname: params[:nickname], major: params[:major], another_major: params[:another_major], sex: params[:sex]
-    #   @user = params.require(:user).permit(:email, :password, :nickname, :major, :another_major. :sex)
-    # end
 end
 
 

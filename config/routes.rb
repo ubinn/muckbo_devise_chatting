@@ -13,6 +13,9 @@ Rails.application.routes.draw do
    end
  end
   
+  get '/report' => 'rooms#report'
+  post '/report' => 'rooms#report_create'
+  
   
   
   # get '/users/sign_up' => 'rooms#sign_up'

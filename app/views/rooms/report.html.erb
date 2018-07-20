@@ -1,0 +1,41 @@
+<section class="style3 flat-row">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">	
+					<body class="bg-light">
+		
+				    	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+						<div class="filter-result style2" style="font-family:Nanum Gothic Coding">
+						<main role="main" class="inner cover">
+                            <h1 class="cover-heading">신고하기</h1>
+                            <br/>
+                            <p class="lead">장난 혹은 허위사실로 신고시에는 이용정지를 당하실수있습니다.</p>
+                         </main>
+						
+					    
+						<div class="one-half">
+							<div class="wrap-listing report">
+							        <label>신고사유 선택</label>
+										<span class="ti-angle-down"></span>
+										<select name="report_reason">
+											<option value="1">약속장소에 나오지 않음</option>
+											<option value="2">돈을 내지 않았음</option>
+											<option value="3">기타사유</option>
+										</select>
+										<br/>
+										<p>만약,기타사유를 고르셨다면, 신고사유 설명란에 이유를 함께 기재하여 주십시오.</p>
+										
+								    <label>신고사유 설명</label>
+									   <input type="text" name="report_description" placeholder="정확한 일자와 이유 등 최대한 상세하게 상황을 기술해주십시오">
+							    	</div><!-- /.wrap-listing -->
+    							<div class="btn-more match">
+								    <%= link_to '신고하기', report_path(@report), method: 'post', remote: true %>
+							    </div>
+							</div>
+						</div><!-- /.filter-result -->
+						</div>
+					</body>
+					</div><!-- /.col-md-12 -->
+			</div><!-- /.row -->
+		</div>
+</section>

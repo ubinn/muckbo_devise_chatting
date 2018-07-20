@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180718081707) do
+ActiveRecord::Schema.define(version: 20180720044908) do
 
   create_table "admissions", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20180718081707) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_chats_on_room_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "user_email"
+    t.integer  "user_id"
+    t.integer  "report_reason"
+    t.text     "report_description"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -57,6 +66,16 @@ ActiveRecord::Schema.define(version: 20180718081707) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_chat_logs", force: :cascade do |t|
+    t.string   "room_title"
+    t.integer  "room_id"
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.date     "chat_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
