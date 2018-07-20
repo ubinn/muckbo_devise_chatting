@@ -19,7 +19,9 @@ class Admission < ApplicationRecord
  
  def user_exit_room_notification
    Pusher.trigger("room",'exit',self.as_json)
+   
    Pusher.trigger("room_#{self.room_id}",'exit',self.as_json)
+    p "admissions의 유저나가는 trigger 작동"
  end
  
  def user_ready_check

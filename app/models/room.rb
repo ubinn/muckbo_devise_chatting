@@ -5,7 +5,7 @@ class Room < ApplicationRecord
     has_many :chats
     has_and_belongs_to_many :tags
     
-    
+    paginates_per 3
     
     after_commit :create_room_notification, on: :create
     after_commit :scan_hashtag_from_body, on: :create
@@ -75,8 +75,6 @@ class Room < ApplicationRecord
         end
     end
  end
-
-
 
 
 

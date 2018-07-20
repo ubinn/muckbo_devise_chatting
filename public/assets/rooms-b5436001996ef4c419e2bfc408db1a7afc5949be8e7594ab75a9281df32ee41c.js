@@ -3404,824 +3404,824 @@ jQuery.extend( jQuery.easing,
             });
         }; // Filter Toggle
 
-        var googleMap = function() {
-            var data = JSON.parse('[{"address":"8/178 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam","content":"","status":"live"},{"address":"ngõ 19 phố Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":""},{"address":"The Life School, Tầng 6, nhà D1, ngõ, 161 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam","content":""}]');
-            var data1 = JSON.parse('[{"address1":"3818 Fort Hamilton Pkwy, Brooklyn, NY 11218","content":"","status":"live"},{"address2":"Brooklyn, Tiểu bang New York 11230","content":""}]');
-            var data2 = JSON.parse('[{"address":"84 Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":"","status":"live"}]');
-            var data3 = JSON.parse('[{"address":"Thành phố New York, Tiểu bang New York","content":""}]');
-            var data4 = JSON.parse('[{"address":"8/178 Nguyễn Lương Bằng, Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":""}]');
+        // var googleMap = function() {
+        //     var data = JSON.parse('[{"address":"8/178 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam","content":"","status":"live"},{"address":"ngõ 19 phố Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":""},{"address":"The Life School, Tầng 6, nhà D1, ngõ, 161 Nguyễn Lương Bằng, Quang Trung, Đống Đa, Hà Nội, Việt Nam","content":""}]');
+        //     var data1 = JSON.parse('[{"address1":"3818 Fort Hamilton Pkwy, Brooklyn, NY 11218","content":"","status":"live"},{"address2":"Brooklyn, Tiểu bang New York 11230","content":""}]');
+        //     var data2 = JSON.parse('[{"address":"84 Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":"","status":"live"}]');
+        //     var data3 = JSON.parse('[{"address":"Thành phố New York, Tiểu bang New York","content":""}]');
+        //     var data4 = JSON.parse('[{"address":"8/178 Nguyễn Lương Bằng, Chợ Dừa, Đống Đa, Hà Nội, Việt Nam","content":""}]');
 
-            // Gmap Defaults
-            $('.map').gmap3({
-                map:{
-                    options:{
-                        center:[21.016760, 105.826886],
-                        mapTypeId: 'themesflat_style',
-                        mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 17
-                    },
-                    navigationControl: true,
-                   scrollwheel: false,
-                   streetViewControl: true
-                }
-            });
+        //     // Gmap Defaults
+        //     $('.map').gmap3({
+        //         map:{
+        //             options:{
+        //                 center:[21.016760, 105.826886],
+        //                 mapTypeId: 'themesflat_style',
+        //                 mapTypeControlOptions: {
+        //                         mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+        //                 zoom: 17
+        //             },
+        //             navigationControl: true,
+        //           scrollwheel: false,
+        //           streetViewControl: true
+        //         }
+        //     });
 
-            $('.map-1').gmap3({
-                map:{
-                    options:{
-                        center:[40.636429, -73.980047],
-                        zoom: 14
-                    }
-                }
-            });
+        //     $('.map-1').gmap3({
+        //         map:{
+        //             options:{
+        //                 center:[40.636429, -73.980047],
+        //                 zoom: 14
+        //             }
+        //         }
+        //     });
 
-            $('.map-2').gmap3({
-                map:{
-                    options:{
-                        center:[21.015396, 105.824299],
-                       mapTypeId: 'themesflat_style',
-                        mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 17,
-                        animation: google.maps.Animation.BOUNCE
-                    },
-                    navigationControl: true,
-                   scrollwheel: false,
-                   streetViewControl: true
-                }
-            });
+        //     $('.map-2').gmap3({
+        //         map:{
+        //             options:{
+        //                 center:[21.015396, 105.824299],
+        //               mapTypeId: 'themesflat_style',
+        //                 mapTypeControlOptions: {
+        //                         mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+        //                 zoom: 17,
+        //                 animation: google.maps.Animation.BOUNCE
+        //             },
+        //             navigationControl: true,
+        //           scrollwheel: false,
+        //           streetViewControl: true
+        //         }
+        //     });
 
-            $('.map-3').gmap3({
-                map:{
-                    options:{
-                        center:[40.719625, -74.004715],
-                        mapTypeId: 'themesflat_style',
-                        mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 13
-                    }
-                }
-            });
+        //     $('.map-3').gmap3({
+        //         map:{
+        //             options:{
+        //                 center:[40.719625, -74.004715],
+        //                 mapTypeId: 'themesflat_style',
+        //                 mapTypeControlOptions: {
+        //                         mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+        //                 zoom: 13
+        //             }
+        //         }
+        //     });
 
-            $('.map-4').gmap3({
-                map:{
-                    options:{
-                        center:[21.017114, 105.826939],
-                        mapTypeId: 'themesflat_style',
-                        mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
-                        zoom: 17
-                    }
-                }
-            });
+        //     $('.map-4').gmap3({
+        //         map:{
+        //             options:{
+        //                 center:[21.017114, 105.826939],
+        //                 mapTypeId: 'themesflat_style',
+        //                 mapTypeControlOptions: {
+        //                         mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]},
+        //                 zoom: 17
+        //             }
+        //         }
+        //     });
 
-            // Json Loop
-            $.each(data, function(key, val) {
-                $('.map').gmap3({
-                    marker:{
-                        values:[{
-                            address:val.address,
-                            options:{icon: "images/icon/map.png"},
-                            events: {
-                                mouseover: function() {
-                                    $(this).gmap3({
-                                        overlay:{
-                                            address:val.address,
-                                            options:{
-                                                content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>AN Restaurant</h3><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
-                                                offset:{
-                                                    y:-200,
-                                                    x:-115
-                                                }
-                                            }
-                                        }
-                                    });
-                                },
-                                mouseout: function(){
-                                $('.infobox').each(function() {
-                                    $(this).remove();
-                                });
-                                }
-                            }
-                        }]
-                    },
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Themesflat Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "administrative",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#efebe2"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "saturation": -100
-                                    },
-                                    {
-                                        "lightness": 45
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                             {
-                                "featureType": "administrative.locality",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi.park",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#bad294"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#a5d7e0"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                });
-            });
+        //     // Json Loop
+        //     $.each(data, function(key, val) {
+        //         $('.map').gmap3({
+        //             marker:{
+        //                 values:[{
+        //                     address:val.address,
+        //                     options:{icon: "images/icon/map.png"},
+        //                     events: {
+        //                         mouseover: function() {
+        //                             $(this).gmap3({
+        //                                 overlay:{
+        //                                     address:val.address,
+        //                                     options:{
+        //                                         content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>AN Restaurant</h3><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
+        //                                         offset:{
+        //                                             y:-200,
+        //                                             x:-115
+        //                                         }
+        //                                     }
+        //                                 }
+        //                             });
+        //                         },
+        //                         mouseout: function(){
+        //                         $('.infobox').each(function() {
+        //                             $(this).remove();
+        //                         });
+        //                         }
+        //                     }
+        //                 }]
+        //             },
+        //             styledmaptype:{
+        //                 id: "themesflat_style",
+        //                 options:{
+        //                     name: "Themesflat Map"
+        //                 },
+        //                 styles:[
+        //                     {
+        //                         "featureType": "administrative",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "landscape",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#efebe2"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "saturation": -100
+        //                             },
+        //                             {
+        //                                 "lightness": 45
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.highway",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "simplified"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.icon",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                      {
+        //                         "featureType": "administrative.locality",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi.park",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#bad294"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "transit",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "water",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#a5d7e0"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     }
+        //                 ]
+        //             }
+        //         });
+        //     });
 
-            $.each(data1, function(key, val) {
-                $('.map-1').gmap3({
-                    marker:{
-                        values:[{
-                            address:val.address1,
-                            options:{icon: "images/icon/map-02.png"}
-                        },
-                        {
-                            address:val.address2,
-                            options:{icon: "images/icon/map-03.png"}
-                        }]
-                    },
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Themesflat Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "administrative",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#efebe2"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "saturation": -100
-                                    },
-                                    {
-                                        "lightness": 45
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                             {
-                                "featureType": "administrative.locality",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi.park",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#bad294"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#a5d7e0"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                });
-            });
+        //     $.each(data1, function(key, val) {
+        //         $('.map-1').gmap3({
+        //             marker:{
+        //                 values:[{
+        //                     address:val.address1,
+        //                     options:{icon: "images/icon/map-02.png"}
+        //                 },
+        //                 {
+        //                     address:val.address2,
+        //                     options:{icon: "images/icon/map-03.png"}
+        //                 }]
+        //             },
+        //             styledmaptype:{
+        //                 id: "themesflat_style",
+        //                 options:{
+        //                     name: "Themesflat Map"
+        //                 },
+        //                 styles:[
+        //                     {
+        //                         "featureType": "administrative",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "landscape",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#efebe2"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "saturation": -100
+        //                             },
+        //                             {
+        //                                 "lightness": 45
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.highway",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "simplified"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.icon",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                      {
+        //                         "featureType": "administrative.locality",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi.park",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#bad294"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "transit",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "water",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#a5d7e0"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     }
+        //                 ]
+        //             }
+        //         });
+        //     });
 
-            // Json Loop
-            $.each(data2, function(key, val) {
-                $('.map-2').gmap3({
-                    marker:{
-                        values:[{
-                            address:val.address,
-                            options:{icon: "images/icon/map.png"},
-                            events: {
-                                mouseover: function() {
-                                    $(this).gmap3({
-                                        overlay:{
-                                            address:val.address,
-                                            options:{
-                                                content:  "<div class='infobox'><div class='logo'>D</div><div class='text'><h3>Dailist</h3><p>31 Ven HoVan Chuong Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
-                                                offset:{
-                                                    y:-200,
-                                                    x:-115
-                                                }
-                                            }
-                                        }
-                                    });
-                                },
-                                mouseout: function(){
-                                $('.infobox').each(function() {
-                                    $(this).remove();
-                                });
-                                }
-                            }
-                        }]
-                    },
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Themesflat Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "administrative",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#efebe2"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#2c3e50"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "saturation": -100
-                                    },
-                                    {
-                                        "lightness": 45
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#2c3e50"
-                                    }
-                                ]
-                            },
-                             {
-                                "featureType": "administrative.locality",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi.park",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#bad294"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#a5d7e0"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                });
-            });
+        //     // Json Loop
+        //     $.each(data2, function(key, val) {
+        //         $('.map-2').gmap3({
+        //             marker:{
+        //                 values:[{
+        //                     address:val.address,
+        //                     options:{icon: "images/icon/map.png"},
+        //                     events: {
+        //                         mouseover: function() {
+        //                             $(this).gmap3({
+        //                                 overlay:{
+        //                                     address:val.address,
+        //                                     options:{
+        //                                         content:  "<div class='infobox'><div class='logo'>D</div><div class='text'><h3>Dailist</h3><p>31 Ven HoVan Chuong Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
+        //                                         offset:{
+        //                                             y:-200,
+        //                                             x:-115
+        //                                         }
+        //                                     }
+        //                                 }
+        //                             });
+        //                         },
+        //                         mouseout: function(){
+        //                         $('.infobox').each(function() {
+        //                             $(this).remove();
+        //                         });
+        //                         }
+        //                     }
+        //                 }]
+        //             },
+        //             styledmaptype:{
+        //                 id: "themesflat_style",
+        //                 options:{
+        //                     name: "Themesflat Map"
+        //                 },
+        //                 styles:[
+        //                     {
+        //                         "featureType": "administrative",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "landscape",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#efebe2"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#2c3e50"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "saturation": -100
+        //                             },
+        //                             {
+        //                                 "lightness": 45
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.highway",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "simplified"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.icon",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#2c3e50"
+        //                             }
+        //                         ]
+        //                     },
+        //                      {
+        //                         "featureType": "administrative.locality",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi.park",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#bad294"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "transit",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "water",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#a5d7e0"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     }
+        //                 ]
+        //             }
+        //         });
+        //     });
 
-            // Json Loop
-            $.each(data3, function(key, val) {
-                $('.map-3').gmap3({
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Themesflat Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "administrative",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#efebe2"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "saturation": -100
-                                    },
-                                    {
-                                        "lightness": 45
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                             {
-                                "featureType": "administrative.locality",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "visibility": "on"
-                                    },
-                                    {
-                                        "color": "#222222"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi.park",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#bad294"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#a5d7e0"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                });
-            });
+        //     // Json Loop
+        //     $.each(data3, function(key, val) {
+        //         $('.map-3').gmap3({
+        //             styledmaptype:{
+        //                 id: "themesflat_style",
+        //                 options:{
+        //                     name: "Themesflat Map"
+        //                 },
+        //                 styles:[
+        //                     {
+        //                         "featureType": "administrative",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "landscape",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#efebe2"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "saturation": -100
+        //                             },
+        //                             {
+        //                                 "lightness": 45
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.highway",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "simplified"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.icon",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                      {
+        //                         "featureType": "administrative.locality",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "on"
+        //                             },
+        //                             {
+        //                                 "color": "#222222"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi.park",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#bad294"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "transit",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "water",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#a5d7e0"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     }
+        //                 ]
+        //             }
+        //         });
+        //     });
 
-            // Json Loop
-            $.each(data4, function(key, val) {
-                $('.map-4').gmap3({
-                    marker:{
-                        values:[{
-                            address:val.address,
-                            options:{icon: "images/icon/map.png"},
-                            events: {
-                                mouseover: function() {
-                                    $(this).gmap3({
-                                        overlay:{
-                                            address:val.address,
-                                            options:{
-                                                content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>AN Restaurant</h3><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
-                                                offset:{
-                                                    y:-200,
-                                                    x:-115
-                                                }
-                                            }
-                                        }
-                                    });
-                                },
-                                mouseout: function(){
-                                $('.infobox').each(function() {
-                                    $(this).remove();
-                                });
-                                }
-                            }
-                        }]
-                    },
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Themesflat Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "administrative",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#efebe2"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#2c3e50"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "saturation": -100
-                                    },
-                                    {
-                                        "lightness": 45
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#2c3e50"
-                                    }
-                                ]
-                            },
-                             {
-                                "featureType": "administrative.locality",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi.park",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#bad294"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "color": "#a5d7e0"
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                });
-            });
+        //     // Json Loop
+        //     $.each(data4, function(key, val) {
+        //         $('.map-4').gmap3({
+        //             marker:{
+        //                 values:[{
+        //                     address:val.address,
+        //                     options:{icon: "images/icon/map.png"},
+        //                     events: {
+        //                         mouseover: function() {
+        //                             $(this).gmap3({
+        //                                 overlay:{
+        //                                     address:val.address,
+        //                                     options:{
+        //                                         content:  "<div class='infobox style2'><div class='img-box'><img src='images/icon/icon-map-01.png'></div><div class='text'><h3>AN Restaurant</h3><p>2/51 Hoang Cau Street,<br />Ha Noi, Viet Nam</p></div><div class='clearfix'></div></div>",
+        //                                         offset:{
+        //                                             y:-200,
+        //                                             x:-115
+        //                                         }
+        //                                     }
+        //                                 }
+        //                             });
+        //                         },
+        //                         mouseout: function(){
+        //                         $('.infobox').each(function() {
+        //                             $(this).remove();
+        //                         });
+        //                         }
+        //                     }
+        //                 }]
+        //             },
+        //             styledmaptype:{
+        //                 id: "themesflat_style",
+        //                 options:{
+        //                     name: "Themesflat Map"
+        //                 },
+        //                 styles:[
+        //                     {
+        //                         "featureType": "administrative",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "landscape",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#efebe2"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#2c3e50"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "saturation": -100
+        //                             },
+        //                             {
+        //                                 "lightness": 45
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.highway",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "simplified"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.arterial",
+        //                         "elementType": "labels.icon",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#ffffff"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "road.local",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#2c3e50"
+        //                             }
+        //                         ]
+        //                     },
+        //                      {
+        //                         "featureType": "administrative.locality",
+        //                         "elementType": "labels.text.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "poi.park",
+        //                         "elementType": "geometry.fill",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#bad294"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "transit",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "visibility": "off"
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         "featureType": "water",
+        //                         "elementType": "all",
+        //                         "stylers": [
+        //                             {
+        //                                 "color": "#a5d7e0"
+        //                             },
+        //                             {
+        //                                 "visibility": "on"
+        //                             }
+        //                         ]
+        //                     }
+        //                 ]
+        //             }
+        //         });
+        //     });
 
-            // Function Clear Markers
-            function gmap_clear_markers() {
-                $('.infobox').each(function() {
-                    $(this).slideToggle(400).remove();
-                });
-            }
-        }; // Google Map
+        //     // Function Clear Markers
+        //     function gmap_clear_markers() {
+        //         $('.infobox').each(function() {
+        //             $(this).slideToggle(400).remove();
+        //         });
+        //     }
+        // }; // Google Map
 
         var slideSearch = function() {
             if ( $('body').hasClass('slider') ) {

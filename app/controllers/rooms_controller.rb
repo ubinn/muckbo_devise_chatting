@@ -5,7 +5,9 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    @rooms = Room.page params[:page]
+    @rooms.where(admissions_count: 0).destroy_all
+    
   end
 
   # GET /rooms/1
@@ -143,6 +145,7 @@ class RoomsController < ApplicationController
      render js: "console.log('레디상태로 바뀌었습니다.'); location.reload();"
      # 현재 레디한 방 외에 모든방의 레디해제
      current_user.admissions.where.not(room_id: @room.id).destroy_all
+      Room.where(admissions_count: 0).destroy_all
      # if
    end
    
@@ -158,6 +161,7 @@ class RoomsController < ApplicationController
    p "오픈챗 됬다."
    @room.update(room_state: true)
    Pusher.trigger("room_#{@room.id}", 'chat_start', {})
+   Pusher.trigger("room_#{@room.id}")
  end
 
 

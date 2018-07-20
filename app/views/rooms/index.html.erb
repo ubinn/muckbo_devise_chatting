@@ -1,9 +1,3 @@
-<% if user_signed_in? %>
-<%= current_user.nickname %> / <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to '로그인', new_user_session_path %>
-<% end %>
-
 		<section class="page-title style1 parallax parallax1">
 			<div class="container">
 				<div class="row">
@@ -59,10 +53,12 @@
 						</div><!-- /.filter-result -->
 					</div><!-- /.col-md-12 -->
 				</div><!-- /.row -->
-				
+		</div>
+		</section>
+		
+		<section class="room_list">
 					<% @rooms.reverse.each do |room| %>
-			<div class="room_list">
-				<div class="style3" style= "font-family:Do Hyeon">
+				<div class="style3" style= "font-family:Gothic A1">
 					<div= "row">
 						<div class="col-sx-12">
 							<div class="imagebox style2">
@@ -70,7 +66,7 @@
 									<div class="box-header">
 									</div><!-- /.box-header -->
 									<div class ="row">
-									  <div class="check<%=room.id%>"
+									  <div class="check<%=room.id%>">
 										<div>
 											<a href ="/rooms/<%=room.id%>" ><font size="5"><%= room.room_title %></font></a>
 											<span style="float:right;font-family:Do Hyeon"><font size="5"><span class="current<%= room.id %>"><%=room.admissions_count%></span> / <%=room.max_count%></font></span>
@@ -93,9 +89,13 @@
 						</div><!-- /.col-sm-12 -->
 					</div>
 			</div>
+			
 						<% end %>
-
+		<div class="text-center">				
+		<%= paginate @rooms, theme: 'twitter-bootstrap-4' %>
+		</div>
 		</section>
+			
 		<section class="style3 flat-row">
 			<div class="container">
 					<div class="row">
@@ -121,7 +121,7 @@
 									  <div class="check${data.id}"
 										<div>
 											<a href ="/rooms/${data.id}" ><font size="5">${data.room_title}</font></a>
-											<span style="float:right;font-family:Do Hyeon"><font size="5"><span class="current${data.id}">${data.admissions_count}</span> / ${data.max_count}</font></span>
+											<span style="float:right;font-family:Do Hyeon"><font size="5"><span class="current${data.id}">1</span> / ${data.max_count}</font></span>
 										</div>
 										
 										<div style ="font-family:Do Hyeon">
@@ -158,7 +158,6 @@
 	   cluster: "<%= ENV["Pusher_cluster"] %>",
 	   encrypted: true
 	 });
-
 	var channel = pusher.subscribe('room');
 	
 	 channel.bind('create', function(data){
@@ -170,7 +169,6 @@
 	 channel.bind('join', function(data) {
 	   console.log("유저가 들어감");
 	   console.log(data);
-
 	 });
 	 
 	 channel.bind('exit',function(data){
