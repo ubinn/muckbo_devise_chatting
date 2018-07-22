@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy, :user_exit_room, :is_user_ready, :chat, :open_chat]
   before_action :authenticate_user!, except: [:index]
 
+  layout "chat", only: [:chat, :open_chat]
   # GET /rooms
   # GET /rooms.json
   def index
@@ -47,6 +48,7 @@ class RoomsController < ApplicationController
   def create
    @room = Room.new(room_params)
    @room.master_id = current_user.email
+   @room.meet_time_end = @room.start_time_hour.to_i + 1
    
    respond_to do |format|
       if @room.save
@@ -126,6 +128,42 @@ class RoomsController < ApplicationController
     @rooms = tag.rooms
     @tag =tag.name
   end
+
+  def search
+    if params[:hashsearch] and params[:room_type] and params[:food_type]
+      @rooms = Room.where("room_title LIKE ?", "%#{params[:hashsearch]}%").where(room_type: params[:room_type], food_type: params[:food_type]).to_a 
+    elsif params[:food_type] and params[:room_type]
+      @rooms = Room.where(food_type: params[:food_type], room_type: params[:room_type]).to_a
+    elsif params[:hashsearch] and params[:room_type]
+      @rooms = Room.where("room_title LIKE ?", "%#{params[:hashsearch]}%").where(room_type: params[:room_type]).to_a 
+    elsif params[:hashsearch] and params[:food_type]
+      @rooms = Room.where("room_title LIKE ?", "%#{params[:hashsearch]}%").where(food_type: params[:food_type]).to_a 
+    elsif params[:hashsearch]
+      @rooms = Room.where("room_title LIKE ?", "%#{params[:hashsearch]}%").to_a
+    elsif params[:food_type]
+      @rooms = Room.where(food_type: params[:food_type]).to_a
+    elsif params[:room_type]
+      @rooms =  Room.where(room_type: params[:room_type]).to_a
+    end
+  end
+  
+  def quickmatch
+  end
+  
+def matching
+
+    # 해당하는 방이 없을 때, alert를 띄우던지 아니면 해당하는 방이 없다는 화면으로 보내주던지...
+    if !Room.where(room_type: "먹방").to_a[0].nil?
+      @rooms = Room.where(room_type: "먹방").order(:admissions_count).reverse.sort[0].id 
+      # 룸타입이 먹방인 방에서, 현재 인원의 역순으로 정렬후, 인덱스에 따라서 다시 정렬, 그후 id만 추출
+      redirect_to "/rooms/#{@rooms}"
+    else
+      @no_match = "매칭되는 방이 없어요..."
+      redirect_to "/quickmatch"
+    end  
+   end
+
+  
   
   ### 채팅 ###
   def user_exit_room
@@ -164,6 +202,7 @@ class RoomsController < ApplicationController
    end
    p "admission의 힘"
    Pusher.trigger("room_#{@room.id}", 'chat_start', {})
+   RoomDestroyJob.set(wait: 1.hours).perform_later(@room.id)
  end
 
  def report
